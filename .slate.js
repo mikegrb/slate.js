@@ -1,5 +1,3 @@
-S.log("[SLATE] -------------- running shiz --------------");
-
 // Configs
 S.cfga({
   "defaultToCurrentScreen" : true,
@@ -56,8 +54,6 @@ var tboltRMidBot = tboltRMidTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var tboltRRightTop = tboltRRight.dup({ "height" : "screenSizeY/2" });
 var tboltRRightBot = tboltRRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
-S.log("[SLATE] -------------- making my operations --------------");
-
 var tboltRiTerm =  S.op("move", {
   "screen" : monTboltR,
   "x" : "screenOriginX",
@@ -94,8 +90,6 @@ var lapMiniPlayer =  S.op("move", {
   "width" : "400",
   "height" : "48"
 });
-
-S.log("[SLATE] -------------- making my layout hash generators --------------");
 
 
 // layout hash generators
@@ -170,101 +164,17 @@ var universalLayout = function() {
   }
 };
 
-// Batch bind everything. Less typing.
-S.bnda({
-  // Layout Bindings
-  // "padEnter:ctrl" : universalLayout,
-  // "space:ctrl" : universalLayout,
-
-  // Basic Location Bindings
-  // "pad0:ctrl" : lapChat,
-  // "[:ctrl" : lapChat,
-  // "pad.:ctrl" : lapMain,
-  // "]:ctrl" : lapMain,
-  // "pad1:ctrl" : tboltLLeftBot,
-  // "pad2:ctrl" : tboltLMidBot,
-  // "pad3:ctrl" : tboltLRightBot,
-  // "pad4:ctrl" : tboltLLeftTop,
-  // "pad5:ctrl" : tboltLMidTop,
-  // "pad6:ctrl" : tboltLRightTop,
-  // "pad7:ctrl" : tboltLLeft,
-  // "pad8:ctrl" : tboltLMid,
-  // "pad9:ctrl" : tboltLRight,
-  // "pad=:ctrl" : tboltLFull,
-  // "pad1:alt" : tboltRLeftBot,
-  // "pad2:alt" : tboltRMidBot,
-  // "pad3:alt" : tboltRRightBot,
-  // "pad4:alt" : tboltRLeftTop,
-  // "pad5:alt" : tboltRMidTop,
-  // "pad6:alt" : tboltRRightTop,
-  // "pad7:alt" : tboltRLeft,
-  // "pad8:alt" : tboltRMid,
-  // "pad9:alt" : tboltRRight,
-  // "pad=:alt" : tboltRFull,
-  // 
-  // // Resize Bindings
-  // // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-  // "right:ctrl" : S.op("resize", { "width" : "+10%", "height" : "+0" }),
-  // "left:ctrl" : S.op("resize", { "width" : "-10%", "height" : "+0" }),
-  // "up:ctrl" : S.op("resize", { "width" : "+0", "height" : "-10%" }),
-  // "down:ctrl" : S.op("resize", { "width" : "+0", "height" : "+10%" }),
-  // "right:alt" : S.op("resize", { "width" : "-10%", "height" : "+0", "anchor" : "bottom-right" }),
-  // "left:alt" : S.op("resize", { "width" : "+10%", "height" : "+0", "anchor" : "bottom-right" }),
-  // "up:alt" : S.op("resize", { "width" : "+0", "height" : "+10%", "anchor" : "bottom-right" }),
-  // "down:alt" : S.op("resize", { "width" : "+0", "height" : "-10%", "anchor" : "bottom-right" }),
-  // 
-  // // Push Bindings
-  // // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-  // "right:ctrl;shift" : S.op("push", { "direction" : "right", "style" : "bar-resize:screenSizeX/2" }),
-  // "left:ctrl;shift" : S.op("push", { "direction" : "left", "style" : "bar-resize:screenSizeX/2" }),
-  // "up:ctrl;shift" : S.op("push", { "direction" : "up", "style" : "bar-resize:screenSizeY/2" }),
-  // "down:ctrl;shift" : S.op("push", { "direction" : "down", "style" : "bar-resize:screenSizeY/2" }),
-  // 
-  // // Nudge Bindings
-  // // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-  // "right:ctrl;alt" : S.op("nudge", { "x" : "+10%", "y" : "+0" }),
-  // "left:ctrl;alt" : S.op("nudge", { "x" : "-10%", "y" : "+0" }),
-  // "up:ctrl;alt" : S.op("nudge", { "x" : "+0", "y" : "-10%" }),
-  // "down:ctrl;alt" : S.op("nudge", { "x" : "+0", "y" : "+10%" }),
-  // 
-  // // Throw Bindings
-  // // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-  // "pad1:ctrl;alt" : S.op("throw", { "screen" : "2", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // "pad2:ctrl;alt" : S.op("throw", { "screen" : "1", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // "pad3:ctrl;alt" : S.op("throw", { "screen" : "0", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // "right:ctrl;alt;cmd" : S.op("throw", { "screen" : "right", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // "left:ctrl;alt;cmd" : S.op("throw", { "screen" : "left", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // "up:ctrl;alt;cmd" : S.op("throw", { "screen" : "up", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // "down:ctrl;alt;cmd" : S.op("throw", { "screen" : "down", "width" : "screenSizeX", "height" : "screenSizeY" }),
-  // 
-  // // Focus Bindings
-  // // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-  // "l:cmd" : S.op("focus", { "direction" : "right" }),
-  // "h:cmd" : S.op("focus", { "direction" : "left" }),
-  // "k:cmd" : S.op("focus", { "direction" : "up" }),
-  // "j:cmd" : S.op("focus", { "direction" : "down" }),
-  // "k:cmd;alt" : S.op("focus", { "direction" : "behind" }),
-  // "j:cmd;alt" : S.op("focus", { "direction" : "behind" }),
-  // "right:cmd" : S.op("focus", { "direction" : "right" }),
-  // "left:cmd" : S.op("focus", { "direction" : "left" }),
-  // "up:cmd" : S.op("focus", { "direction" : "up" }),
-  // "down:cmd" : S.op("focus", { "direction" : "down" }),
-  // "up:cmd;alt" : S.op("focus", { "direction" : "behind" }),
-  // "down:cmd;alt" : S.op("focus", { "direction" : "behind" }),
-
-  // Window Hints
-  "esc:cmd" : S.op("hint"),
-
-  // Switch currently doesn't work well so I'm commenting it out until I fix it.
-  //"tab:cmd" : S.op("switch"),
-
-  // Grid
-  // "esc:ctrl" : S.op("grid")
+var grid =  S.op("grid", {
+  "grids": {
+    "0": { "width": 9, "height": 6 },
+    "1": { "width": 9, "height": 6 },
+    "2": { "width": 9, "height": 6 }
+  }
 });
 
-// Test Cases
-// S.src(".slate.test", true);
-// S.src(".slate.test.js", true);
+S.bind("pad.:ctrl", universalLayout);
+S.bind("padEnter:ctrl", grid);
+S.bind("esc:cmd", S.op("hint"));
 
 // Log that we're done configuring
 S.log("[SLATE] -------------- Finished Loading Config --------------");
