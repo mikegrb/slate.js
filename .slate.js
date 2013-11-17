@@ -164,6 +164,14 @@ var universalLayout = function() {
   }
 };
 
+var centerOnScreen = function(targetScreen) {
+  return S.op("throw", {
+    "x": "screenOriginX+(screenSizeX-windowSizeX)/2",
+    "y": "screenOriginY+(screenSizeY-windowSizeY)/2",
+    "screen": targetScreen
+  });
+}
+
 var grid =  S.op("grid", {
   "grids": {
     "0": { "width": 9, "height": 6 },
@@ -172,9 +180,15 @@ var grid =  S.op("grid", {
   }
 });
 
-S.bind("pad.:ctrl", universalLayout);
-S.bind("padEnter:ctrl", grid);
-S.bind("esc:cmd", S.op("hint"));
+S.bnda({
+  "pad1:ctrl;alt" : centerOnScreen("0"),
+  "pad2:ctrl;alt" : centerOnScreen("1"),
+  "pad3:ctrl;alt" : centerOnScreen("2"),
+  "pad.:ctrl"     : universalLayout,
+  "padEnter:ctrl" : grid,
+  "esc:cmd"       : S.op("hint")
+});
+
 
 // Log that we're done configuring
 S.log("[SLATE] -------------- Finished Loading Config --------------");
