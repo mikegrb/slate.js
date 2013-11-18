@@ -172,6 +172,13 @@ var centerOnScreen = function(targetScreen) {
   });
 }
 
+var maximizeYo = S.op("move", {
+      "x" : "screenOriginX",
+      "y" : "screenOriginY",
+      "width" : "screenSizeX",
+      "height" : "screenSizeY"
+});
+
 var grid =  S.op("grid", {
   "grids": {
     "0": { "width": 9, "height": 6 },
@@ -185,6 +192,7 @@ S.bnda({
   "pad2:ctrl;alt" : centerOnScreen("1"),
   "pad3:ctrl;alt" : centerOnScreen("2"),
   "pad.:ctrl"     : universalLayout,
+  "pad5:ctrl"     : maximizeYo,
   "padEnter:ctrl" : grid,
   "esc:cmd"       : S.op("hint")
 });
