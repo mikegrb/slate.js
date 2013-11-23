@@ -172,6 +172,25 @@ var centerOnScreen = function(targetScreen) {
   });
 }
 
+var growRight =  slate.operation("resize", {
+  "width"  : "+10%",
+  "height" : "+0"
+});
+var growBottom =  slate.operation("resize", {
+  "width"  : "+0",
+  "height" : "+10%"
+});
+
+var shrinkRight =  slate.operation("resize", {
+  "width" : "-10%",
+  "height" : "+0"
+});
+
+var shrinkBottom =  slate.operation("resize", {
+  "width" : "+0",
+  "height" : "-10%"
+});
+
 var maximizeYo = S.op("move", {
       "x" : "screenOriginX",
       "y" : "screenOriginY",
@@ -191,6 +210,14 @@ S.bnda({
   "pad1:ctrl;alt" : centerOnScreen("0"),
   "pad2:ctrl;alt" : centerOnScreen("1"),
   "pad3:ctrl;alt" : centerOnScreen("2"),
+  "pad6:ctrl"     : growRight,
+  "pad2:ctrl"     : growBottom,
+  "pad6:alt"      : shrinkRight,
+  "pad2:alt"      : shrinkBottom,
+  "pad6:cmd"      : S.op("nudge", { "x" : "+10%", "y": "+0"   } ),
+  "pad2:cmd"      : S.op("nudge", { "x" : "+0",   "y": "+10%" } ),
+  "pad4:cmd"      : S.op("nudge", { "x" : "-10%", "y": "+0"   } ),
+  "pad8:cmd"      : S.op("nudge", { "x" : "+0",   "y": "-10%" } ),
   "pad.:ctrl"     : universalLayout,
   "pad5:ctrl"     : maximizeYo,
   "padEnter:ctrl" : grid,
