@@ -181,6 +181,18 @@ var growBottom =  slate.operation("resize", {
   "height" : "+10%"
 });
 
+var growLeft =  slate.operation("resize", {
+  "width"  : "+10%",
+  "height" : "+0",
+  "anchor" : "bottom-right"
+});
+
+var growTop =  slate.operation("resize", {
+  "width"  : "+0",
+  "height" : "-10%",
+  "anchor" : "bottom-left"
+});
+
 var shrinkRight =  slate.operation("resize", {
   "width" : "-10%",
   "height" : "+0"
@@ -189,6 +201,18 @@ var shrinkRight =  slate.operation("resize", {
 var shrinkBottom =  slate.operation("resize", {
   "width" : "+0",
   "height" : "-10%"
+});
+
+var shrinkLeft =  slate.operation("resize", {
+  "width"  : "-10%",
+  "height" : "+0",
+  "anchor" : "bottom-right"
+});
+
+var shrinkTop =  slate.operation("resize", {
+  "width"  : "+0",
+  "height" : "-10%",
+  "anchor" : "bottom-right"
 });
 
 var maximizeYo = S.op("move", {
@@ -212,8 +236,12 @@ S.bnda({
   "pad3:ctrl;alt" : centerOnScreen("2"),
   "pad6:ctrl"     : growRight,
   "pad2:ctrl"     : growBottom,
+  "pad4:ctrl"     : growLeft,
+  "pad8:ctrl"     : growTop,
   "pad6:alt"      : shrinkRight,
   "pad2:alt"      : shrinkBottom,
+  "pad4:ctrl"     : shrinkLeft,
+  "pad8:ctrl"     : shrinkTop,
   "pad6:cmd"      : S.op("nudge", { "x" : "+10%", "y": "+0"   } ),
   "pad2:cmd"      : S.op("nudge", { "x" : "+0",   "y": "+10%" } ),
   "pad4:cmd"      : S.op("nudge", { "x" : "-10%", "y": "+0"   } ),
