@@ -61,6 +61,13 @@ var tboltRiTerm =  S.op("move", {
   "width" : "566",
   "height" : "1413"
 });
+var tboltLeTerm =  S.op("move", {
+  "screen" : monTboltL,
+  "x" : "screenOriginX+1402",
+  "y" : "screenOriginY",
+  "width" : "1156",
+  "height" : "1413"
+});
 var tboltRChrome =  S.op("move", {
   "screen" : monTboltR,
   "x" : "screenOriginX+569",
@@ -90,7 +97,6 @@ var lapMiniPlayer =  S.op("move", {
   "width" : "400",
   "height" : "48"
 });
-
 
 // layout hash generators
 
@@ -130,7 +136,7 @@ var threeMonitorLayout = S.lay("threeMonitor", {
   "Mail" : genMailHash(),
   "Google Chrome" : { "operations" : [tboltRChrome] },
   "iTerm" : {
-      "operations" : [tboltRiTerm, tboltLMidBot, tboltRMidTop, tboltRMidBot, tboltRRightBot],
+      "operations" : [tboltRiTerm, tboltLeTerm, tboltRMidTop, tboltRMidBot, tboltRRightBot],
       "sort-title" : true,
       "repeat" : true
   }
