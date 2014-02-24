@@ -68,6 +68,13 @@ var tboltLeTerm =  S.op("move", {
   "width" : "1156",
   "height" : "1413"
 });
+var ltopTerm =  S.op("move", {
+  "screen" : monLaptop,
+  "x" : "screenOriginX",
+  "y" : "screenOriginY",
+  "width" : "826",
+  "height" : "378"
+});
 var tboltRChrome =  S.op("move", {
   "screen" : monTboltR,
   "x" : "screenOriginX+569",
@@ -136,7 +143,7 @@ var threeMonitorLayout = S.lay("threeMonitor", {
   "Mail" : genMailHash(),
   "Google Chrome" : { "operations" : [tboltRChrome] },
   "iTerm" : {
-      "operations" : [tboltRiTerm, tboltLeTerm, tboltRMidTop, tboltRMidBot, tboltRRightBot],
+      "operations" : [tboltRiTerm, tboltLeTerm, ltopTerm, tboltRMidBot, tboltRRightBot],
       "sort-title" : true,
       "repeat" : true
   }
